@@ -26,7 +26,7 @@ def check_get_all_posts_response(response):
     _response_general_check(response)
     assert_that(len(response.json()), equal_to(100))
 
-# @pytest.mark.parametrize('correct_title', list(get_title(5).values()))
+
 @allure.step
 def check_get_title(response, correct_title):
     _response_general_check(response)
