@@ -35,7 +35,7 @@ def check_get_title(response, correct_title):
 @allure.step
 def check_get_id(response):
     _response_general_check(response)
-    assert_that((response.status_code), equal_to(404))
+    assert_that((response.status_code), equal_to(200))
 
 
 @allure.step

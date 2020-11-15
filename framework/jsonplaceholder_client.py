@@ -26,3 +26,10 @@ class Client:
             return self._post(path=f'/posts', data=data)
         except Exception as e:
             print("Исключение", e)
+
+    def _delete(self, path: str, data):
+        return r.delete(url=JSONPLACEHOLDER_HOST + path, data=data)
+
+    @allure.step
+    def delete_resourse(self, data):
+        return self._delete(path=f'/posts', data=data)
