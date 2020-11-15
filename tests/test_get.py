@@ -23,7 +23,7 @@ class TestGetPosts:
         (6, 'dolorem eum magni eos aperiam quia'),
         pytest.param(7, 'another title1', marks=pytest.mark.xfail(reason='incorrect title')),
         pytest.param(8, 'another title3', marks=pytest.mark.xfail(reason='incorrect title'))])
-    @allure.title('Positive and Negatine (7, 8). Get posts and check titles')
+    @allure.title('Positives and Negatives (7, 8). Get posts and check titles')
     def test_get_specific_resourses(self, data, correct_title):
         response = Client().get_post_by_id(data)
         check_get_title(response, correct_title)
