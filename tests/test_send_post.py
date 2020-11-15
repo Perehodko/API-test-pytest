@@ -4,8 +4,8 @@ from framework.check import check_create_resourse
 from framework.jsonplaceholder_client import Client
 
 
-@allure.suite('POST')
-class TestGetPosts:
+@allure.suite('POST /posts')
+class TestSendPost:
     @pytest.mark.parametrize('data',
                              [{"title": 'title_1', "body": 'text text text',"userId": 101}, {"title"}])
     @allure.title('Positive. Send post and create a resource')
