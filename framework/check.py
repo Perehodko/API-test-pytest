@@ -1,6 +1,8 @@
 import allure
 from hamcrest import assert_that, equal_to
 from requests import codes
+from framework.helper import get_title
+import pytest
 
 
 def _response_general_check(response, expected_code=codes.ok):
@@ -24,12 +26,12 @@ def check_get_all_posts_response(response):
     _response_general_check(response)
     assert_that(len(response.json()), equal_to(100))
 
-
+# @pytest.mark.parametrize('correct_title', list(get_title(5).values()))
 @allure.step
-def check_get_title(response):
+def check_get_title(response, correct_title):
     _response_general_check(response)
     assert_that(response.json()["title"],
-                equal_to("sunt aut facere repellat provident occaecati excepturi optio reprehenderit"))
+                equal_to(correct_title))
 
 
 @allure.step
