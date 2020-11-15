@@ -7,13 +7,21 @@ from framework.jsonplaceholder_client import Client
 @allure.suite('GET /posts/N')
 class TestGetPosts:
 
-    @allure.title('Positive. Get id_post=1')
-    def test_get_specific_resourse(self):
-        response = Client().get_post_by_id(1)
-        check_get_title(response)
-
-    @pytest.mark.xfail
+    @pytest.mark.xfail("non-existent")
     @allure.title('Negative. Get id_post=101')
     def test_get_specific_resourse_negative(self):
         response = Client().get_post_by_id(999)
         check_get_id(response)
+
+    @pytest.mark.parametrize('data, correct_title', [
+        (1, 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit'),
+        (2, 'qui est esse'),
+        (3, 'ea molestias quasi exercitationem repellat qui ipsa sit aut'),
+        (4, 'eum et est occaecati'),
+        (5, 'nesciunt quas odio'),
+        (6, 'dolorem eum magni eos aperiam quia'),
+        pytest.param(7, 'another title1', marks=pytest.mark.xfail(reason='incorrect title')),
+        pytest.param(8, 'another title3', marks=pytest.mark.xfail(reason='incorrect title'))])
+    def test_get_specific_resourses(self, data, correct_title):
+        response = Client().get_post_by_id(data)
+        check_get_title(response, correct_title)
