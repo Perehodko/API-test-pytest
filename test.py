@@ -1,9 +1,10 @@
-import requests
 
-title_d = {}
+d = {1: 'fff', 2: "l"}
+l = []
 
-for number in range(1, 25):
-    r = requests.get("https://jsonplaceholder.typicode.com/posts/"+str(number))
-    title_d[number] = r.json()["title"]
-    # print(r.status_code, r.json()["title"])
-print(title_d)
+for key in d:
+    l.append(key)
+ll = d.values()
+print(d[1])
+
+

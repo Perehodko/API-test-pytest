@@ -18,7 +18,7 @@ class Client:
 
     @allure.step
     def _post(self, path: str, data):
-        return r.post(url=JSONPLACEHOLDER_HOST + path, data= data)
+        return r.post(url=JSONPLACEHOLDER_HOST + path, data=data)
 
     @allure.step
     def create_resourse(self, data):
