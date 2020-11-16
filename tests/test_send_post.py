@@ -16,7 +16,7 @@ class TestSendPost:
         response = Client().create_resourse_good(data)
         check_create_resourse(response)
 
-    @pytest.mark.xfail(reason="non-existent id")
+    @pytest.mark.xfail(reason="Send POST on unresolve resourse")
     @pytest.mark.parametrize('data', [
         {"title": 'title_one', "body": 'text body', "userId": 102}])
     @allure.title('Negative. Send POST on unresolve resourse')
