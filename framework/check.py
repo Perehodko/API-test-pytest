@@ -28,16 +28,16 @@ def check_get_all_posts_response(response):
 @allure.step
 def check_get_title(response, correct_title):
     _response_general_check(response)
-    assert_that(response.json()["title"],
-                equal_to(correct_title))
+    assert_that(response.json()["title"], equal_to(correct_title))
 
 
 @allure.step
 def check_get_id(response):
     _response_general_check(response)
-    assert_that((response.status_code), equal_to(200))
+    assert_that(response.status_code, equal_to(200))
 
 
 @allure.step
 def check_create_resourse(response):
     _response_create_resourse(response)
+    assert_that(response.status_code, equal_to(201))
