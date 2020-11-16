@@ -6,11 +6,11 @@ from framework.jsonplaceholder_client import Client
 
 @allure.suite('POST /posts')
 class TestSendPost:
-    @pytest.mark.parametrize('data',[
+    @pytest.mark.parametrize('data', [
         {"title": 'title_1', "body": 'text text text', "userId": 101},
         {"title": 'title_1', "body": 'text text text'},
         {"title": 'title_1'},
-        ])
+    ])
     @allure.title('Positive. Send POST and create a resource')
     def test_create_resourse(self, data):
         response = Client().create_resourse_good(data)
