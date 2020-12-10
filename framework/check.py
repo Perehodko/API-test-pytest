@@ -8,8 +8,7 @@ def _response_general_check(response, expected_code=codes.ok):
             f'Expected status code: {expected_code}. Actual code: {response.status_code}. Url: {response.url}')
 
 
-
-def _response_create_resource(response, expected_code=201):
+def _response_create_resource(response, expected_code=codes.created):
     assert_that(response.status_code, equal_to(expected_code),
             f'Expected status code: {expected_code}. Actual code: {response.status_code}. Url: {response.url}')
 

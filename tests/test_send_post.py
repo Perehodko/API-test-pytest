@@ -16,10 +16,10 @@ class TestSendPost:
         response = Client().create_resource_good(data)
         check_create_resource(response)
 
-    @pytest.mark.xfail(reason="Send POST on unresolve resourse")
+    @pytest.mark.xfail(reason="Send POST on unresolved resource")
     @pytest.mark.parametrize('data', [
         {"title": 'title_one', "body": 'text body', "userId": 102}])
-    @allure.title('Negative. Send POST on unresolve resourse')
+    @allure.title('Negative. Send POST on unresolved resource')
     def test_create_resource_b(self, data):
         response = Client().create_resource_bad(data)
         check_create_resource(response)

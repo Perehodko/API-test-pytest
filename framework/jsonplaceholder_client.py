@@ -22,14 +22,10 @@ class Client:
 
     @allure.step
     def create_resource_good(self, data):
-        try:
-            return self._post(path=f'/posts', data=data)
-        except Exception as e:
-            print("Исключение", e)
+        return self._post(path=f'/posts', data=data)
+
 
     @allure.step
     def create_resource_bad(self, data):
-        try:
-            return self._post(path=f'/post/1/comments', data=data)
-        except Exception as e:
-            print("Исключение", e)
+        return self._post(path=f'/post/1/comments', data=data)
+
