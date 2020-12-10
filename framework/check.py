@@ -28,10 +28,8 @@ def check_get_title(response, correct_title):
 @allure.step
 def check_get_id(response):
     _response_general_check(response)
-    assert_that(response.status_code, equal_to(200))
 
 
 @allure.step
 def check_create_resource(response):
     _response_create_resource(response)
-    assert_that(response.status_code, equal_to(201))
