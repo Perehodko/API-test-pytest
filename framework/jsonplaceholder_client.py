@@ -24,8 +24,6 @@ class Client:
     def create_resource_good(self, data):
         return self._post(path=f'/posts', data=data)
 
-
     @allure.step
     def create_resource_bad(self, data):
         return self._post(path=f'/post/1/comments', data=data)
-
