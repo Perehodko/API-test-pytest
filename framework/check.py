@@ -4,19 +4,14 @@ from requests import codes
 
 
 def _response_general_check(response, expected_code=codes.ok):
-    try:
-        assert_that(response.status_code, equal_to(expected_code),
-                    f'Expected status code: {expected_code}. Actual code: {response.status_code}. Url: {response.url}')
-    except Exception as e:
-        print("Исключение:", e)
+    assert_that(response.status_code, equal_to(expected_code),
+            f'Expected status code: {expected_code}. Actual code: {response.status_code}. Url: {response.url}')
+
 
 
 def _response_create_resource(response, expected_code=201):
-    try:
-        assert_that(response.status_code, equal_to(expected_code),
-                    f'Expected status code: {expected_code}. Actual code: {response.status_code}. Url: {response.url}')
-    except Exception as e:
-        print("Исключение:", e)
+    assert_that(response.status_code, equal_to(expected_code),
+            f'Expected status code: {expected_code}. Actual code: {response.status_code}. Url: {response.url}')
 
 
 @allure.step
