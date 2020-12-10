@@ -7,7 +7,7 @@ from framework.jsonplaceholder_client import Client
 @allure.suite('GET /posts/N')
 class TestGetPosts:
 
-    @pytest.mark.xfail(reason="non-existent id")
+    @pytest.mark.xfail(reason="non-existent id 8")
     @allure.title('Negative. Get id_post=101')
     def test_get_specific_resourse_negative(self, input_value):
         response = Client().get_post_by_id(input_value)
