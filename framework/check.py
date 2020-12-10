@@ -11,7 +11,7 @@ def _response_general_check(response, expected_code=codes.ok):
         print("Исключение:", e)
 
 
-def _response_create_resourse(response, expected_code=201):
+def _response_create_resource(response, expected_code=201):
     try:
         assert_that(response.status_code, equal_to(expected_code),
                     f'Expected status code: {expected_code}. Actual code: {response.status_code}. Url: {response.url}')
@@ -38,6 +38,6 @@ def check_get_id(response):
 
 
 @allure.step
-def check_create_resourse(response):
-    _response_create_resourse(response)
+def check_create_resource(response):
+    _response_create_resource(response)
     assert_that(response.status_code, equal_to(201))

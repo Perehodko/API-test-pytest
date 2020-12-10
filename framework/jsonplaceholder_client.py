@@ -21,14 +21,14 @@ class Client:
         return r.post(url=JSONPLACEHOLDER_HOST + path, data=data)
 
     @allure.step
-    def create_resourse_good(self, data):
+    def create_resource_good(self, data):
         try:
             return self._post(path=f'/posts', data=data)
         except Exception as e:
             print("Исключение", e)
 
     @allure.step
-    def create_resourse_bad(self, data):
+    def create_resource_bad(self, data):
         try:
             return self._post(path=f'/post/1/comments', data=data)
         except Exception as e:
