@@ -9,6 +9,10 @@ class Client:
         return r.get(url=JSONPLACEHOLDER_HOST + path)
 
     @allure.step
+    def _post(self, path: str, data):
+        return r.post(url=JSONPLACEHOLDER_HOST + path, data=data)
+
+    @allure.step
     def get_all_posts(self):
         return self._get(path=f'/posts')
 
@@ -17,13 +21,16 @@ class Client:
         return self._get(path=f'/posts/{post_id}')
 
     @allure.step
-    def _post(self, path: str, data):
-        return r.post(url=JSONPLACEHOLDER_HOST + path, data=data)
-
-    @allure.step
-    def create_resource_good(self, data):
+    def create_post(self, data):
         return self._post(path=f'/posts', data=data)
 
     @allure.step
+    def create_resource_good(self, data):
+        return self.create_post(path=f'/posts', data=data)
+
+    @allure.step
     def create_resource_bad(self, data):
-        return self._post(path=f'/post/1/comments', data=data)
+        return self.create_post(path=f'/post/1/comments', data=data)
+
+    def delete(self, post_id: int):
+        return r.delete(url=JSONPLACEHOLDER_HOST + f'/posts/{post_id}')
