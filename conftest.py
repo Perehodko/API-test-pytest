@@ -1,6 +1,6 @@
 import pytest
-from framework.jsonplaceholder_client import Client
-from framework.check import _response_general_check
+from framework.helper import get_all_post, delete_post
+
 
 @pytest.fixture
 def input_value():
@@ -9,16 +9,19 @@ def input_value():
 
 
 @pytest.fixture(scope='function')
-def prepared_resource_id(request):
-    response = Client().get_post_by_id(1)
-    _response_general_check(response)
-    post_id = response.json()['id']
+def prepared_resource_id(request, post_exist=None):
+    response = get_all_post()
 
-    response = Client().delete(1)
-    _response_general_check(response)
+    try:
+        if response.json()[1]:
+            post_exist = True
+    except IndexError:
+        post_exist = False
 
-
+    if post_exist:
+        delete_post(1)
 
     def _clean_up():
-        pass
+        if not post_exist:
+            delete_post(1)
     request.addfinalizer(_clean_up)
