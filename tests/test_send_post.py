@@ -11,7 +11,7 @@ class TestSendPost:
     ])
     @allure.title('Positive. Send POST and create a resource')
     def test_create_resource(self, data):
-        response = Client().create_resource_good(data)
+        response = Client().create_post(data)
         check_create_resource(response)
 
     @pytest.mark.xfail(reason="Send POST on unresolved resource")
