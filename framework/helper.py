@@ -1,6 +1,6 @@
 from framework.jsonplaceholder_client import Client
 from framework.check import _response_general_check
-from framework.data.constants.smoke_consts import USER_IDS, TITLE, BODY_RESOURCE
+from framework.data.constants.smoke_consts import TITLE, BODY_RESOURCE
 from framework.check import check_create_resource
 
 

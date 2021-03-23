@@ -11,8 +11,8 @@ class Client:
     def _post(self, path: str, data):
         return r.post(url=JSONPLACEHOLDER_HOST + path, data=data)
 
-    def _delete(self, path: str):
-        return r.post(url=JSONPLACEHOLDER_HOST + path)
+    def _patch(self, path: str, data):
+        return r.patch(url=JSONPLACEHOLDER_HOST + path, data=data)
 
     @allure.step
     def get_all_posts(self):
@@ -37,3 +37,11 @@ class Client:
     @allure.step
     def delete_post(self, post_id: int):
         return r.delete(url=JSONPLACEHOLDER_HOST + f'/posts/{post_id}')
+
+    @allure.step
+    def patch_post(self, post_id: int, data):
+        return r.patch(url=JSONPLACEHOLDER_HOST + f'/posts/{post_id}', data=data)
+
+    @allure.step
+    def update_post(self, post_id: int, data):
+        return r.put(url=JSONPLACEHOLDER_HOST + f'/posts/{post_id}', data=data)
