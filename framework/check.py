@@ -14,6 +14,11 @@ def _response_create_resource(response, expected_code=codes.created):
 
 
 @allure.step
+def response_general_check(response):
+    _response_general_check(response)
+
+
+@allure.step
 def check_get_all_posts_response(response):
     _response_general_check(response)
     assert_that(len(response.json()), equal_to(100))
