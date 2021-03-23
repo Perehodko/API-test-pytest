@@ -1,4 +1,4 @@
-# jsonplaceholder_tests
+# jsonplaceholder
 API: https://jsonplaceholder.typicode.com/
 
 #### Добавлены смок тесты для ручек:
