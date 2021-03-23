@@ -1,8 +1,5 @@
 import pytest
 from framework.helper import get_all_post, delete_post, gen_create_post
-from framework.data.constants.smoke_consts import USER_IDS, TITLE, BODY_RESOURCE
-from framework.jsonplaceholder_client import Client
-from framework.check import response_general_check, check_create_resource
 
 
 @pytest.fixture(scope='function')
