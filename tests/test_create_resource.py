@@ -6,13 +6,13 @@ from framework.data.constants.smoke_consts import USER_IDS, TITLE, BODY_RESOURCE
 
 
 @allure.suite('POST /posts')
-@pytest.mark.parametrize('user_id', USER_IDS)
+@pytest.mark.parametrize('prepared_resource_id', USER_IDS, indirect=True)
 @allure.title('Positive. Send POST and create a resource')
-def test_create_resource(prepared_resource_id, user_id):
+def test_create_resource(prepared_resource_id):
     data = {
         "title": TITLE,
         "body": BODY_RESOURCE,
-        "userId": user_id
+        "userId": prepared_resource_id
     }
     response = Client().create_post(data)
     check_create_resource(response)
