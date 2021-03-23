@@ -1,5 +1,5 @@
 # jsonplaceholder_tests
-API https://jsonplaceholder.typicode.com/
+API: https://jsonplaceholder.typicode.com/
 
 #### Сделано:
 - добавлен позитивный тест на получение конкретных постов (GET) и проверка заголовков
