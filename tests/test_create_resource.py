@@ -2,7 +2,7 @@ import allure
 import pytest
 from framework.check import check_create_resource
 from framework.jsonplaceholder_client import Client
-from framework.data.constants.smoke_consts import USER_IDS, TITLE, BODY_RESOURCE
+from framework.data.constants.smoke_consts import USER_IDS, TITLES, BODY_RESOURCE
 
 
 @allure.suite('POST /posts')
@@ -10,7 +10,7 @@ from framework.data.constants.smoke_consts import USER_IDS, TITLE, BODY_RESOURCE
 @allure.title('Positive. Send POST and create a resource')
 def test_create_resource(prepared_resource_id):
     data = {
-        "title": TITLE,
+        "title": TITLES[0],
         "body": BODY_RESOURCE,
         "userId": prepared_resource_id
     }

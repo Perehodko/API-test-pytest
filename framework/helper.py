@@ -1,6 +1,6 @@
 from framework.jsonplaceholder_client import Client
 from framework.check import _response_general_check
-from framework.data.constants.smoke_consts import TITLE, BODY_RESOURCE
+from framework.data.constants.smoke_consts import TITLES, BODY_RESOURCE
 from framework.check import check_create_resource
 
 
@@ -17,7 +17,7 @@ def delete_post(post_id):
 
 def gen_create_post(post_id):
     data = {
-        'title': TITLE,
+        'title': TITLES,
         'body': BODY_RESOURCE,
         'userId': post_id
     }
